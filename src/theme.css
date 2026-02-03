@@ -1,0 +1,50 @@
+:root {
+  /* 1. Primary Color (Gold) */
+  --color-primary: 212 175 55;
+  /* #d4af37 */
+  --color-primary-hover: 184 150 46;
+  /* #b8962e */
+
+  /* 2. Background Colors */
+  --color-bg-start: #ffffff;
+  --color-bg-end: #f9f7f2;
+  /* Subtle warm tint */
+
+  /* 3. Text Colors */
+  --color-text: #1a1a1a;
+  /* Near black */
+  --color-text-muted: #666666;
+
+  /* 4. Glass & Input Backgrounds (White) */
+  --color-glass: rgba(255, 255, 255, 0.8);
+  --color-glass-border: rgba(212, 175, 55, 0.2);
+  /* Gold hint */
+  --color-input-bg: #ffffff;
+  --color-input-border: #bbbbbb;
+  /* Darker border for better contrast */
+  --color-input-focus: #d4af37;
+}
+
+.dark {
+  /* 1. Primary Color (Gold - slightly brighter for dark mode) */
+  --color-primary: 240 198 68;
+  /* #f0c644 */
+  --color-primary-hover: 212 175 55;
+  /* #d4af37 */
+
+  /* 2. Background Colors (Black/Deep Gray) */
+  --color-bg-start: #0a0a0a;
+  --color-bg-end: #121212;
+
+  /* 3. Text Colors (White/Light Gray) */
+  --color-text: #ffffff;
+  --color-text-muted: #a0a0a0;
+
+  /* 4. Glass & Input Backgrounds (Dark Gray) */
+  --color-glass: rgba(30, 30, 30, 0.7);
+  --color-glass-border: rgba(240, 198, 68, 0.1);
+  --color-input-bg: #121212;
+  /* Darker background */
+  --color-input-border: #444444;
+  /* Brighter border */
+}

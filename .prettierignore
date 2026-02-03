@@ -1,0 +1,7 @@
+dist
+node_modules
+coverage
+.git
+.DS_Store
+*.config.js
+*.d.ts
