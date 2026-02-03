@@ -3,7 +3,7 @@ import { useForm, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { User, Mail, Phone, Calendar, ChevronRight, CheckCircle2 } from 'lucide-react';
 import TermsModal from './TermsModal';
-import logo from '../assets/gramador-logo.png';
+import { config } from '@brand';
 import { getCountryFlag } from '../utils/countryFlags';
 
 interface OnboardingFormData {
@@ -36,7 +36,7 @@ const RegisterForm: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Configurable Store Name
-  const storeName = import.meta.env.VITE_STORE_NAME || 'Gramador';
+  const storeName = config.storeName;
 
   const selectedYear = useWatch({ control, name: 'year' });
   const selectedMonth = useWatch({ control, name: 'month' });
@@ -229,7 +229,7 @@ const RegisterForm: React.FC = () => {
         <div className="max-w-4xl w-full">
           <div className="text-center mb-16">
             <img
-              src={logo}
+              src={config.logo}
               alt={storeName}
               className="h-48 sm:h-64 w-auto mx-auto mb-10 object-contain"
             />

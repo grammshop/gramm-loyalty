@@ -1,9 +1,11 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './i18n';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import RegisterForm from './components/RegisterForm';
 import ThemeToggle from './components/ThemeToggle';
 import { useAuth } from './components/AuthContext';
 import LoginForm from './components/LoginForm';
+import DownloadPage from './components/DownloadPage';
 
 function App() {
   const { user, loading } = useAuth();
@@ -34,13 +36,22 @@ function App() {
         </div>
       )}
 
-      {!user ? (
-        <LoginForm />
-      ) : (
-        <div className="w-full flex-1 flex flex-col items-center py-8">
-          <RegisterForm />
-        </div>
-      )}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            !user ? (
+              <LoginForm />
+            ) : (
+              <div className="w-full flex-1 flex flex-col items-center py-8">
+                <RegisterForm />
+              </div>
+            )
+          }
+        />
+        <Route path="/download" element={<DownloadPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </div>
   );
 }

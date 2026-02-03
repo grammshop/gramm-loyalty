@@ -2,9 +2,12 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /loyalty/{document=**} {
-      // Allow operations only for authenticated users
-      allow read, write: if request.auth != null;
+      // Read allowed only for admins (admin in email)
+      allow read: if request.auth != null && request.auth.token.email.lower().matches('.*admin.*');
+      // Write allowed for any authenticated user
+      allow write: if request.auth != null;
     }
+    
     // Default deny for everything else
     match /{document=**} {
       allow read, write: if false;
