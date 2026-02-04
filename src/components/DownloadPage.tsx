@@ -3,11 +3,11 @@ import { db } from '../firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
-import { Download, ShieldAlert, FileSpreadsheet } from 'lucide-react';
+import { Download, ShieldAlert, FileSpreadsheet, LogOut } from 'lucide-react';
 import { useAuth } from './AuthContext';
 
 const DownloadPage: React.FC = () => {
-  const { user, loading } = useAuth();
+  const { user, loading, logout } = useAuth();
   const [isAdmin, setIsAdmin] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -196,7 +196,14 @@ const DownloadPage: React.FC = () => {
 
   if (!isAdmin) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center p-4">
+      <div className="min-h-screen flex flex-col items-center justify-center p-4 relative">
+        <button 
+          onClick={() => logout()} 
+          className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-theme-base transition-colors"
+          title="Deconectare"
+        >
+          <LogOut className="w-6 h-6" />
+        </button>
         <div className="glass-morphism p-8 md:p-12 text-center max-w-md w-full border-red-500/30">
             <ShieldAlert className="w-20 h-20 text-red-500 mx-auto mb-6" />
             <h1 className="text-3xl font-bold mb-4 text-theme-base">Acces Interzis</h1>
@@ -207,7 +214,15 @@ const DownloadPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 relative">
+        <button 
+          onClick={() => logout()} 
+          className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-theme-base transition-colors"
+          title="Deconectare"
+        >
+          <LogOut className="w-6 h-6" />
+        </button>
+
         <div className="glass-morphism p-10 md:p-16 rounded-3xl flex flex-col items-center text-center max-w-lg w-full relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-green-600"></div>
             
