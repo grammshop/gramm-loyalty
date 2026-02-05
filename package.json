@@ -6,6 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:gramador": "tsc -b && APP_BRAND=gramador vite build",
+    "build:yama": "tsc -b && APP_BRAND=yama vite build",
+    "release:gramador": "npm run build:gramador && firebase deploy --only hosting:gramador",
+    "release:yama": "npm run build:yama && firebase deploy --only hosting:yama",
+    "release:all": "npm run build:gramador && npm run build:yama && firebase deploy --only hosting",
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,json}\"",
     "dev:all": "tsc -b && npm run lint && npm run format && npm run dev",

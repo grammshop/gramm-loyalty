@@ -95,6 +95,8 @@ export default defineConfig({
     }),
   ],
   build: {
+    outDir: `dist/${brand}`,
+    emptyOutDir: true,
     modulePreload: false,
     target: 'esnext',
     minify: false,

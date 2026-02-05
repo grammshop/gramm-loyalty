@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "gramador-dc5a5"
+  },
+  "targets": {
+    "gramador-dc5a5": {
+      "hosting": {
+        "gramador": [
+          "gramador-dc5a5"
+        ],
+        "yama": [
+          "yama-dc5a5"
+        ]
+      }
+    }
   }
 }
